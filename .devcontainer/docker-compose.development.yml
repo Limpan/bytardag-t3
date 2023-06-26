@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  devcontainer:
+    image: mcr.microsoft.com/devcontainers/typescript-node:0-20-bullseye
+    volumes:
+      - ..:/workspaces/bytardag:cached
+    command: sleep infinity
+    userns_mode: keep-id
+    networks:
+      skynet:
+
+
+networks:
+  skynet:

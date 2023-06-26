@@ -1,0 +1,4 @@
+{
+  "recommendations": ["dracula-theme.theme-dracula"],
+  "unwantedRecommendations": ["ms-azuretools.vscode-docker"]
+}
