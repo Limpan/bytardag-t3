@@ -1,14 +1,14 @@
 type ButtonProps = {
-  primary?: boolean
-  label: string
-}
+  primary?: boolean;
+  label: string;
+};
 
-const Button = ({primary = false, label}: ButtonProps) => {
-  const bg = primary ? 'bg-red-400' : 'bg-blue-400';
+export const Button = ({ primary = false, label }: ButtonProps) => {
+  const bg = primary
+    ? "bg-red-400 dark:bg-red-600"
+    : "bg-blue-400 dark:bg-blue-600";
 
-  return( <button className={` ${bg} font-bold text-white px-6 py-2`}>
-      {label}
-  </button>)
-}
-
-export default Button;
+  return (
+    <button className={` ${bg} px-6 py-2 font-bold text-white`}>{label}</button>
+  );
+};

@@ -1,9 +1,7 @@
+import { withThemeByClassName } from '@storybook/addon-styling';
 import "../src/styles/globals.css";
 
 export const parameters = {
-  backgrounds: {
-    default: "light",
-  },
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
@@ -12,3 +10,10 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  withThemeByClassName({
+    themes: { light: "", dark: "dark" },
+    defaultTheme: "light"
+  })
+]

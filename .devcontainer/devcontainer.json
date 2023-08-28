@@ -1,16 +1,16 @@
 {
-	"dockerComposeFile": "docker-compose.development.yml",
-  "service": "devcontainer",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "containerUser": "node",
+  "build": { "dockerfile": "Dockerfile" },
+  "runArgs": ["--userns=keep-id"],
+  "postCreateCommand": "npm install",
 
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"bradlc.vscode-tailwindcss",
-				"eamodio.gitlens",
-				"esbenp.prettier-vscode"
-			]
-		}
-	}
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bradlc.vscode-tailwindcss",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "Prisma.prisma"
+      ]
+    }
+  }
 }

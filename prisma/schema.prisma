@@ -14,10 +14,47 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
+model Event {
+    id             String   @id @default(cuid())
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+    isActive       Boolean
+    startsAt       DateTime
+    endsAt         DateTime
+    signupStartsAt DateTime
+    signupEndsAt   DateTime
+    seats          Seat[]
+    sheets         Sheet[]
+}
+
+model Seat {
+    id            String   @id @default(cuid())
+    sellerTagName String
+    userId        String?
+    claimedBy     User?    @relation(fields: [userId], references: [id])
+    claimedAt     DateTime @default(now())
+    eventId       String
+    event         Event    @relation(fields: [eventId], references: [id])
+    version       Int      @default(0)
+
+    @@unique([eventId, sellerTagName])
+}
+
+model Sheet {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    eventId   String
+    event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+    tags      Tag[]
+}
+
+model Tag {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+    sellerId  String
+    amount    Int
+    sheetId   String
+    sheet     Sheet    @relation(fields: [sheetId], references: [id], onDelete: Cascade)
 }
 
 // Necessary for Next auth
@@ -53,8 +90,10 @@ model User {
     email         String?   @unique
     emailVerified DateTime?
     image         String?
+    role          String    @default("user")
     accounts      Account[]
     sessions      Session[]
+    seats         Seat[]
 }
 
 model VerificationToken {

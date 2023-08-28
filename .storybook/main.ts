@@ -1,11 +1,12 @@
 import type { StorybookConfig } from "@storybook/nextjs";
+
 const config: StorybookConfig = {
   stories: ["../src/components/**/*.stories.mdx", "../src/components/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "@storybook/addon-postcss",
+    "@storybook/addon-styling",
   ],
   framework: {
     name: "@storybook/nextjs",
@@ -15,4 +16,5 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
 };
+
 export default config;
