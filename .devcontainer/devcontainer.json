@@ -1,8 +1,9 @@
 {
-  "build": { "dockerfile": "Dockerfile" },
-  "runArgs": ["--userns=keep-id"],
-  "postCreateCommand": "npm install",
-
+  "name": "Node.js & TypeScript",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
   "customizations": {
     "vscode": {
       "extensions": [
