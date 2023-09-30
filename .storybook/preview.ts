@@ -1,4 +1,4 @@
-import { withThemeByClassName } from '@storybook/addon-styling';
+import { withThemeByClassName } from '@storybook/addon-themes';
 import "../src/styles/globals.css";
 
 export const parameters = {

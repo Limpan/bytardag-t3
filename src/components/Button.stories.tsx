@@ -3,23 +3,31 @@ import type { StoryObj, Meta } from "@storybook/react";
 import { Button } from "./Button";
 
 const meta: Meta<typeof Button> = {
-  title: "Button",
   component: Button,
+  argTypes: {
+    variant: {
+      options: ['primary', 'secondary'],
+      control: { type: 'radio'},
+    },
+    onClick: {
+      action: 'clicked'
+    }
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
+export const Primary: Story = {  
   args: {
-    primary: true,
-    label: "Custom text",
+    variant: 'primary',
+    label: "Primary"
   },
 };
 
 export const Secondary: Story = {
   args: {
-    primary: false,
-    label: "Custom text",
+    variant: 'secondary',
+    label: "Secondary",
   },
 };

@@ -1,6 +1,5 @@
-import { api } from "@app/utils/api";
 import React, { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 
 export interface Values {
   startsAt: Date;
@@ -10,11 +9,11 @@ export interface Values {
   signupEndsAt: Date;
 }
 
-const EventCreationForm = ({
-  onSubmit,
-}: {
-  onSubmit: (event: any) => void;
-}) => {
+type EventCreationFormProps = {
+  onSubmit: () => SubmitHandler<Values>;
+}
+
+const EventCreationForm = ({ onSubmit }: EventCreationFormProps) => {
   const {
     register,
     handleSubmit,

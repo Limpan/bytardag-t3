@@ -1,4 +1,4 @@
-import { SubmitHandler } from "react-hook-form";
+import type { SubmitHandler } from "react-hook-form";
 import { api } from "../utils/api";
 import EventCreationForm, { type Values } from "./EventCreationForm";
 

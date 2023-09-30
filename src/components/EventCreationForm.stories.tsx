@@ -4,7 +4,7 @@ import EventCreationForm from "./EventCreationForm";
 
 const meta: Meta<typeof EventCreationForm> = {
   component: EventCreationForm,
-  argTypes: { onSubmit: { action: "clicked" } },
+  argTypes: { onSubmit: { action: 'submitted' } },
 };
 
 export default meta;
