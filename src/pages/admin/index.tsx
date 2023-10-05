@@ -3,7 +3,7 @@ import React from "react";
 import { type NextPage } from "next";
 import Head from "next/head";
 
-import EventCreationFormController from "@app/components/EventCreationFormContainer";
+import EventCreationForm from "@app/components/EventCreationForm";
 import EventListContainer from "@app/components/EventListContainer";
 
 const Admin: NextPage = () => {
@@ -15,7 +15,7 @@ const Admin: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <EventCreationFormController />
+        <EventCreationForm />
 
         <EventListContainer />
       </main>
